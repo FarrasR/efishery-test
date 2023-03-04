@@ -1,7 +1,7 @@
 package form
 
 type RegisterForm struct {
-	Phone    string
-	Username string
-	Role     string
+	Phone    string `json:"phone"`
+	Username string `json:"username"`
+	Role     string `json:"role"`
 }

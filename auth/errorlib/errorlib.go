@@ -1,17 +1,21 @@
 package errorlib
 
 var (
-	ErrPhoneNumberRegistered = CustomError{msg: PhoneNumberError}
-	ErrSomethingWrong        = CustomError{msg: SomethingWrong}
+	ErrSomethingWrong        = CustomError{msg: SomethingWrongMessage}
+	ErrPhoneNumberRegistered = CustomError{msg: PhoneNumberErrorMessage}
+	ErrLogin                 = CustomError{msg: LoginErrorMessage}
+	ErrInvalidJwt            = CustomError{msg: InvalidJwtErrorMessage}
 )
 
 const (
-	SomethingWrong   = "Somethinmg is wrong"
-	PhoneNumberError = "Phone number already registered"
+	SomethingWrongMessage   = "Something went wrong"
+	PhoneNumberErrorMessage = "Phone number already registered"
+	LoginErrorMessage       = "Phone number doesn't found or wrong password"
+	InvalidJwtErrorMessage  = "JWT is invalid"
 )
 
 type CustomError struct{ msg string }
 
-func (nfe CustomError) Error() string {
-	return nfe.msg
+func (ce CustomError) Error() string {
+	return ce.msg
 }

@@ -1,6 +1,6 @@
 package form
 
 type LoginForm struct {
-	Phone    string
-	Password string
+	Phone    string `json:"phone"`
+	Password string `json:"password"`
 }

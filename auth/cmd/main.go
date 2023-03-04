@@ -1,32 +1,33 @@
 package main
 
 import (
-	"crypto/md5"
-	"fmt"
+	"efishery-auth/database"
+	"efishery-auth/handler"
+	"efishery-auth/router"
+	"efishery-auth/service"
+	"os"
+
+	"github.com/go-rel/rel"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	LoadEnv()
 
-	// adapter := database.InitDB()
+	adapter := database.InitDB()
+	repo := rel.New(adapter)
 
-	// defer adapter.Close()
+	authService := service.NewAuthService(repo, os.Getenv("JWT_SECRET"))
 
-	// repo := rel.New(adapter)
+	handler := router.BuildHandler(
+		handler.NewAuthHandler(authService),
+	)
+	router.RunServer(handler)
+}
 
-	// repo.Ping(context.TODO())
-
-	// var user model.User
-
-	// if err := repo.Find(context.Background(), &user, where.Eq("id", 1)); err != nil {
-	// 	panic(err)
-	// }
-
-	// fmt.Println(user)
-
-	// fmt.Println(user.Username)
-
-	// password := fmt.Sprintf("%x", md5.Sum([]byte(rawPassword)))
-
-	passd := fmt.Sprintf("%x", md5.Sum([]byte("1234")))
-	fmt.Println(passd)
+func LoadEnv() {
+	err := godotenv.Load()
+	if err != nil {
+		panic("Error loading .env file")
+	}
 }
