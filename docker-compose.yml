@@ -1,0 +1,8 @@
+version: '3.5'
+
+services:
+  efishery-auth-api:
+    container_name: efishery-auth-api
+    build: ./auth
+    ports:
+      - 8888:8888
