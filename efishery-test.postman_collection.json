@@ -15,14 +15,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"padoru2\",\r\n    \"phone\": \"012345678\",\r\n    \"role\" : \"user\"\r\n}",
+							"raw": "{\r\n    \"username\": \"udin sedunia\",\r\n    \"phone\": \"01234567891011\",\r\n    \"role\" : \"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{host}}/register"
+						"url": "{{host_auth}}/register"
 					},
 					"response": []
 				},
@@ -33,14 +33,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"phone\": \"012345678\",\r\n    \"password\" : \"hwFV\"\r\n}",
+							"raw": "{\r\n    \"phone\": \"01234567891011\",\r\n    \"password\" : \"A-Mp\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{host}}/login"
+						"url": "{{host_auth}}/login"
 					},
 					"response": []
 				},
@@ -55,7 +55,103 @@
 								"type": "default"
 							}
 						],
-						"url": "{{host}}/explain"
+						"url": "{{host_auth}}/explain"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "fetch",
+			"item": [
+				{
+					"name": "Get Single Product",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVkaW4gc2VkdW5pYSIsInBob25lIjoiMDEyMzQ1Njc4OTEwMTEiLCJyb2xlIjoiYWRtaW4iLCJpc3MiOiJlZmlzaGVyeS1hdXRoIiwic3ViIjoidWRpbiBzZWR1bmlhIiwiYXVkIjpbImVmaXNoZXJ5LWZldGNoIl0sImV4cCI6MTY3ODEzNzkzMiwibmJmIjoxNjc4MTA5MTMyLCJpYXQiOjE2NzgxMDkxMzIsImp0aSI6IjA4OTIwMmFhLTA1NDEtNGQ1MS04YmViLWVlZjhlYzRmNTljYiJ9.DgcAA7RpmfgYs1bhcYZ-BDApcbhmnXtPiB5Y2D07N4c",
+								"type": "default"
+							}
+						],
+						"url": "{{host_fetch}}/products/89714c55-abf6-4929-80e2-adbcb5a9aa76"
+					},
+					"response": []
+				},
+				{
+					"name": "Aggregate Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVkaW4gc2VkdW5pYSIsInBob25lIjoiMDEyMzQ1Njc4OTEwMTEiLCJyb2xlIjoiYWRtaW4iLCJpc3MiOiJlZmlzaGVyeS1hdXRoIiwic3ViIjoidWRpbiBzZWR1bmlhIiwiYXVkIjpbImVmaXNoZXJ5LWZldGNoIl0sImV4cCI6MTY3ODEzNzkzMiwibmJmIjoxNjc4MTA5MTMyLCJpYXQiOjE2NzgxMDkxMzIsImp0aSI6IjA4OTIwMmFhLTA1NDEtNGQ1MS04YmViLWVlZjhlYzRmNTljYiJ9.DgcAA7RpmfgYs1bhcYZ-BDApcbhmnXtPiB5Y2D07N4c",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host_fetch}}/products-aggregate/?startDate=2022-01-01 13:40:22.000&endDate=2022-01-08 04:32:05.000&provinsi=SUMATERA BARAT",
+							"host": [
+								"{{host_fetch}}"
+							],
+							"path": [
+								"products-aggregate",
+								""
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2022-01-01 13:40:22.000"
+								},
+								{
+									"key": "endDate",
+									"value": "2022-01-08 04:32:05.000"
+								},
+								{
+									"key": "provinsi",
+									"value": "SUMATERA BARAT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBhZG9ydTIiLCJwaG9uZSI6IjAxMjM0NTY3OCIsInJvbGUiOiJ1c2VyIiwiaXNzIjoiZWZpc2hlcnktYXV0aCIsInN1YiI6InBhZG9ydTIiLCJhdWQiOlsiZWZpc2hlcnktZmV0Y2giXSwiZXhwIjoxNjg3OTk3ODgxLCJuYmYiOjE2Nzc5NjkwODEsImlhdCI6MTY3Nzk2OTA4MSwianRpIjoiZGRjYzljNGYtYmNkMS00MjVmLWIwZDMtNzM3ZmEzYjg4NjdjIn0.a0DVctPlrIJNqpk2AB8nC9GnFZF9Y91Hw2fvqMUOshw",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host_fetch}}/products/?startDate=2022-01-01 13:40:22.000&endDate=2022-01-08 04:32:05.000&provinsi=SUMATERA BARAT",
+							"host": [
+								"{{host_fetch}}"
+							],
+							"path": [
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2022-01-01 13:40:22.000"
+								},
+								{
+									"key": "endDate",
+									"value": "2022-01-08 04:32:05.000"
+								},
+								{
+									"key": "provinsi",
+									"value": "SUMATERA BARAT"
+								}
+							]
+						}
 					},
 					"response": []
 				}
@@ -84,8 +180,13 @@
 	],
 	"variable": [
 		{
-			"key": "host",
-			"value": "172.17.128.233:8888",
+			"key": "host_auth",
+			"value": "localhost:8888",
+			"type": "default"
+		},
+		{
+			"key": "host_fetch",
+			"value": "localhost:8080",
 			"type": "default"
 		}
 	]

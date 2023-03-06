@@ -8,6 +8,7 @@ class FetchApiApplicationTests {
 
 	@Test
 	fun contextLoads() {
+
 	}
 
 }

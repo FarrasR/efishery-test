@@ -6,3 +6,8 @@ services:
     build: ./auth
     ports:
       - 8888:8888
+  efishery-fetch-api:
+    container_name: efishery-fetch-api
+    build: ./fetch
+    ports:
+      - 8080:8080
